@@ -1,0 +1,16 @@
+.DS_Store
+*.test
+*.out
+coverage.out
+benchmark-results.txt
+
+# Local command binaries.
+/testrun
+/osint-personal
+
+# Editor and local environment files.
+.idea/
+.vscode/
+.env
+.env.*
+!.env.example
