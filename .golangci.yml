@@ -1,0 +1,9 @@
+version: "2"
+
+run:
+  timeout: 10m
+
+issues:
+  # v0.1.0 is the audited public baseline. Keep all default linters enabled and
+  # reject newly introduced issues without forcing a risky bulk rewrite.
+  new-from-rev: v0.1.0

@@ -1,5 +1,2 @@
-# Synthetic detector fixtures committed before the repository became public.
-1faefd94500184cd41a9f42ce8625aeee165b3bf:modules/truffler/truffler_test.go:slack-bot-token:141
-1faefd94500184cd41a9f42ce8625aeee165b3bf:modules/truffler/truffler_test.go:private-key:105
-1faefd94500184cd41a9f42ce8625aeee165b3bf:modules/truffler/truffler.go:private-key:717
-1faefd94500184cd41a9f42ce8625aeee165b3bf:modules/truffler/truffler.go:private-key:733
+# Intentionally empty. Synthetic detector fixtures are scoped by path in
+# .gitleaks.toml so fingerprints do not need to be refreshed after every edit.

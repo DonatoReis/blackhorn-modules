@@ -30,6 +30,17 @@ func hasCheck(findings []module.Finding, checkID string) bool {
 	return false
 }
 
+func checkByID(t *testing.T, checkID string) Check {
+	t.Helper()
+	for _, check := range builtinChecks() {
+		if check.ID == checkID {
+			return check
+		}
+	}
+	t.Fatalf("check %q not found", checkID)
+	return Check{}
+}
+
 func TestName(t *testing.T) {
 	if New().Name() != "smuggler" {
 		t.Fatal("wrong name")
@@ -80,7 +91,8 @@ func TestDifferentialResponse_Inconsistent(t *testing.T) {
 		w.WriteHeader(500) // different status code
 	}))
 	defer srv.Close()
-	m := NewWithClient(srv.Client())
+	m := NewWithChecks([]Check{checkByID(t, "SMUG-004")})
+	m.client = srv.Client()
 	if !hasCheck(run(t, m, srv.URL), "SMUG-004") {
 		t.Fatal("expected SMUG-004 for inconsistent responses")
 	}

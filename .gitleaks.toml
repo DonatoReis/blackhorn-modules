@@ -1,17 +1,12 @@
 [extend]
 useDefault = true
 
-[[allowlists]]
-description = "Synthetic values used only to test secret detectors"
+[allowlist]
+description = "Detector signatures and synthetic fixtures that intentionally resemble secrets"
 paths = [
   '''^fuzz/fuzz_test\.go$''',
   '''^modules/dehashed/dehashed_test\.go$''',
   '''^modules/secretscan/secretscan_test\.go$''',
+  '''^modules/truffler/truffler\.go$''',
   '''^modules/truffler/truffler_test\.go$''',
 ]
-
-[[allowlists]]
-description = "Literal private-key delimiters used as detector regex signatures"
-paths = ['''^modules/truffler/truffler\.go$''']
-regexTarget = "match"
-regexes = ['''-----BEGIN (?:RSA |EC |OPENSSH |PGP )?PRIVATE KEY(?: BLOCK)?-----''']
